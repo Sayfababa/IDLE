@@ -1,4 +1,5 @@
 /** Headless balancing run: `npm run sim -- [minutes] [seed]` (SPEC Teil 20). */
+declare const process: { argv: string[] };
 import { Game } from '../src/sim/game';
 import { newProfile } from '../src/sim/profile';
 import { rarityIndex } from '../src/sim/items';
