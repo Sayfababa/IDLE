@@ -1,0 +1,22 @@
+{
+  "name": "idle-arpg",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc --noEmit && vite build && vite build --mode single",
+    "preview": "vite preview --host",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "sim": "vite-node scripts/sim.ts",
+    "e2e": "node e2e/smoke.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vite": "6.4.6",
+    "vite-plugin-singlefile": "2.3.4",
+    "vitest": "3.2.7",
+    "vite-node": "3.2.4"
+  }
+}
