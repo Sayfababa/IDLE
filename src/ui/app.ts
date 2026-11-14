@@ -188,12 +188,26 @@ export class App {
       case 'stage': g.setStage(p.stage + Number(el.dataset.d)); break;
       case 'export': {
         const s = this.actions.exportSave();
-        navigator.clipboard?.writeText(s).then(() => this.toast(t('ui.copied')), () => window.prompt(t('ui.export'), s));
-        if (!navigator.clipboard) window.prompt(t('ui.export'), s);
-        break;
+        this.dialog(`<p class="dlg-t">${t('ui.export')}</p><textarea id="save-text" readonly rows="6">${s}</textarea><div class="actions" style="grid-template-columns:1fr"><button class="btn" data-act="closeSheet">OK</button></div>`);
+        const ta = this.root.querySelector('#save-text') as HTMLTextAreaElement;
+        try {
+          navigator.clipboard.writeText(s).then(() => this.toast(t('ui.copied')), () => ta.select());
+        } catch { ta.select(); }
+        return;
       }
-      case 'import': { const s = window.prompt(t('ui.import.prompt')); if (s && !this.actions.importSave(s)) this.toast(t('ui.import.fail')); break; }
-      case 'reset': if (window.confirm(t('ui.reset.confirm'))) this.actions.reset(); break;
+      case 'import':
+        this.dialog(`<p class="dlg-t">${t('ui.import.prompt')}</p><textarea id="import-text" rows="6"></textarea><div class="actions" style="grid-template-columns:1fr 1fr"><button class="btn ghost" data-act="closeSheet">${t('ui.cancel')}</button><button class="btn" data-act="doImport">${t('ui.import')}</button></div>`);
+        return;
+      case 'doImport': {
+        const v = (this.root.querySelector('#import-text') as HTMLTextAreaElement | null)?.value ?? '';
+        if (!v.trim() || !this.actions.importSave(v)) this.toast(t('ui.import.fail'));
+        this.closeSheet();
+        return;
+      }
+      case 'reset':
+        this.dialog(`<p class="dlg-t">${t('ui.reset.confirm')}</p><div class="actions" style="grid-template-columns:1fr 1fr"><button class="btn ghost" data-act="closeSheet">${t('ui.cancel')}</button><button class="btn danger" data-act="doReset">${t('ui.reset')}</button></div>`);
+        return;
+      case 'doReset': this.actions.reset(); return;
     }
     this.actions.save();
     this.dirtyPanel = true;
@@ -323,6 +337,14 @@ export class App {
         <button class="btn ghost" data-act="import">${t('ui.import')}</button>
         <button class="btn danger" data-act="reset">${t('ui.reset')}</button>
       </div>`;
+  }
+
+  /** In-page dialog (native confirm/prompt are unavailable in sandboxed viewers). */
+  private dialog(html: string): void {
+    this.selected = null;
+    this.els.sheet!.innerHTML = `<button class="close-x" data-act="closeSheet">${ICON.close}</button>${html}`;
+    this.els.sheet!.classList.add('show');
+    this.els.sheetBg!.classList.add('show');
   }
 
   // ------------------------------------------------------------ item sheet

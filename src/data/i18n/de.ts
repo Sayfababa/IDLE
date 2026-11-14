@@ -117,7 +117,7 @@ export const DE: Record<string, string> = {
   'ui.leech': 'Lebensraub', 'ui.findGold': 'Goldfund', 'ui.findXp': 'Erfahrung', 'ui.findRarity': 'Seltenheit',
   'ui.kills': 'Bezwungen', 'ui.maxStage': 'Tiefste Ebene', 'ui.inventoryFull': 'Beutel voll',
   'ui.farm': 'Ebene halten', 'ui.advance': 'Vorrücken', 'ui.stageUp': 'Ebene {v}', 'ui.levelUp': 'Stufe {v} erreicht',
-  'ui.tier': 'T{v}', 'ui.newSkill': 'Neue Fertigkeit: {v}',
+  'ui.tier': 'T{v}', 'ui.cancel': 'Abbrechen', 'ui.newSkill': 'Neue Fertigkeit: {v}',
 };
 
 export function t(key: string, v?: string | number): string {

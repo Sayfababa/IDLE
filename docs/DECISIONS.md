@@ -26,3 +26,4 @@ Format: `D-<nr> (Datum) – Entscheidung. Grund.` Neue Einträge unten anhängen
 - D-22 (2026-11-14) – Look: Diablo-artiges Dark Fantasy ohne Sprites: prozedurale Canvas-Figuren, Lichtmaske (Fackelradius), Nebel, Vignette; UI in Stein/Eisen/Altgold, Schriften Cinzel + EB Garamond, eigene SVG-Linien-Icons, keine Emojis/Glas/Neon.
 - D-23 (2026-11-14) – Basisangriff Warrior = „Schwertschlag“; 4 Sockel = Hieb, Wirbelwind, Zerschmettern, Kriegsschrei (Freischaltung Lvl 1/3/5/8).
 - D-24 (2026-11-14) – Welt-Zoom 1,3 für Handybildschirme.
+- D-25 (2026-11-14) – Test-Build wird als privates Artifact veröffentlicht (Spielen per Link auf dem iPhone). Native confirm/prompt ersetzt durch In-Game-Dialoge.

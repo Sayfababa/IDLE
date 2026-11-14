@@ -15,6 +15,7 @@ Nutzer-Feedback zum Spielgefühl/Look einholen. Dann M2: voller Affix-Katalog (S
 - `npm test` · `npm run typecheck` · `npm run build` (dist + dist-single)
 - `npm run sim -- 60 42` (Minuten, Seed)
 - `npm run build && PLAYWRIGHT_PATH=/opt/node-tools/node_modules/playwright npm run e2e`
+- `npm run artifact` → `dist-single/artifact.html`; veröffentlicht als Artifact https://claude.ai/artifact/CjQMA3Ptf2MFDKJecdJiym (gleiche Datei-Route erneut publizieren hält die URL)
 
 ## Meilensteine
 | # | Status |

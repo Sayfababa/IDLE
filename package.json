@@ -10,7 +10,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "sim": "vite-node scripts/sim.ts",
-    "e2e": "node e2e/smoke.mjs"
+    "e2e": "node e2e/smoke.mjs",
+    "artifact": "vite build --mode single && node scripts/artifact.mjs"
   },
   "devDependencies": {
     "typescript": "5.9.3",

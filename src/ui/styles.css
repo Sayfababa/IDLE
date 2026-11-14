@@ -298,3 +298,8 @@ canvas#view { position: absolute; inset: 0; width: 100%; height: 100%; display: 
 @media (min-width: 431px) {
   body { background: radial-gradient(circle at 50% 30%, #15100d, #030202); }
 }
+
+.dlg-t { font-family: var(--display); font-size: 14px; letter-spacing: .06em; color: var(--gold-hi); text-align: center; margin: 6px 30px 12px; line-height: 1.35; }
+.sheet textarea { width: 100%; background: #0a0807; color: var(--text); border: 1px solid #000; box-shadow: inset 0 0 0 1px #3a2e22; font: 12px/1.3 ui-monospace, Menlo, monospace; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
+.sheet textarea:focus, .btn:focus-visible, .tab:focus-visible, .toggle:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
